@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "name": "System Monitoring Dashboard",
+    "description": "Real-time system monitoring with CPU, memory, and disk usage",
+    "author": "CLI Designer",
+    "version": "1.0.0",
+    "created": "2024-01-01T00:00:00Z",
+    "modified": "2024-01-01T00:00:00Z",
+    "framework": "textual",
+    "tags": ["monitoring", "system", "devops"]
+  },
+  "settings": {
+    "dimensions": {
+      "width": 120,
+      "height": 40
+    },
+    "theme": "dark",
+    "refreshRate": 1000,
+    "autoResize": true
+  },
+  "widgets": [
+    {
+      "id": "cpu_chart",
+      "type": "line_chart",
+      "position": { "x": 0, "y": 0 },
+      "size": { "width": 60, "height": 20 },
+      "title": "CPU Usage",
+      "dataSource": "system_cpu"
+    },
+    {
+      "id": "memory_bar",
+      "type": "bar_chart",
+      "position": { "x": 60, "y": 0 },
+      "size": { "width": 60, "height": 20 },
+      "title": "Memory Usage",
+      "dataSource": "system_memory"
+    }    {
+      "id": "disk_progress",
+      "type": "progress_bar",
+      "position": { "x": 0, "y": 20 },
+      "size": { "width": 40, "height": 5 },
+      "title": "Disk Usage",
+      "dataSource": "system_disk"
+    },
+    {
+      "id": "network_text",
+      "type": "text",
+      "position": { "x": 40, "y": 20 },
+      "size": { "width": 40, "height": 5 },
+      "title": "Network Status",
+      "dataSource": "system_network"
+    },
+    {
+      "id": "process_table",
+      "type": "table",
+      "position": { "x": 80, "y": 20 },
+      "size": { "width": 40, "height": 15 },
+      "title": "Top Processes",
+      "dataSource": "system_processes"
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "system_cpu",
+      "name": "CPU Monitor",
+      "config": {
+        "type": "system_metric",
+        "metric": "cpu_percent",
+        "interval": 1000
+      }
+    }    {
+      "id": "system_memory",
+      "name": "Memory Monitor",
+      "config": {
+        "type": "system_metric",
+        "metric": "memory_percent",
+        "interval": 1000
+      }
+    },
+    {
+      "id": "system_disk",
+      "name": "Disk Monitor",
+      "config": {
+        "type": "system_metric",
+        "metric": "disk_percent",
+        "interval": 5000
+      }
+    },
+    {
+      "id": "system_network",
+      "name": "Network Monitor",
+      "config": {
+        "type": "system_metric",
+        "metric": "network_in",
+        "interval": 1000
+      }
+    },
+    {
+      "id": "system_processes",
+      "name": "Process Monitor",
+      "config": {
+        "type": "command",
+        "command": "ps aux | head -10",
+        "interval": 5000
+      }
+    }
+  ],
+  "layout": {
+    "type": "grid",
+    "gridSize": 4
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@cli-designer/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "cli-designer": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node dist/cli.js ../examples/system-monitor.json ./test-output"
+  },
+  "dependencies": {
+    "@cli-designer/core": "workspace:*",
+    "@cli-designer/adapter-textual": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.2.2"
+  }
+}

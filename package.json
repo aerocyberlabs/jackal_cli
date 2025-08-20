@@ -1,0 +1,37 @@
+{
+  "name": "jackal-cli",
+  "version": "1.0.0",
+  "description": "Professional visual designer and code generator for terminal-based dashboards. Design once, deploy to Textual (Python), Bubble Tea (Go), Ratatui (Rust), or Blessed (Node.js).",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "core",
+    "adapters/*",
+    "cli"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend",
+    "build": "npm run build:core && npm run build:frontend",
+    "build:core": "npm run build --workspace=core",
+    "build:frontend": "npm run build --workspace=frontend",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "keywords": [
+    "cli",
+    "dashboard",
+    "terminal",
+    "tui",
+    "designer",
+    "textual",
+    "bubble-tea",
+    "ratatui",
+    "blessed"
+  ],
+  "author": "AeroCyberLabs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aerocyberlabs/jackal_cli"
+  }
+}
